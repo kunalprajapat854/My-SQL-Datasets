@@ -1,0 +1,101 @@
+No,Question,A,B,C,D,Answer,Explanation,Topic,Difficulty
+1,Git is primarily a…,Distributed version control system,Centralized issue tracker,Cloud file storage,Continuous integration service,A,Git is a DVCS used to track changes in source code.,Basics,Easy
+2,Which command creates a new Git repository in the current directory?,git start,git repo,git init,git new,C,Use `git init` to create a new repository.,Basics,Easy
+3,Which command shows the working tree status?,git log,git status,git show,git diff,B,`git status` shows tracked/untracked files and staged changes.,Basics,Easy
+4,Which file records patterns of files for Git to ignore?,.gitkeep,.gitignore,.gitingore,git.ignore,B,The ignore patterns live in `.gitignore`.,Basics,Easy
+5,What does `git add` do?,Commits files directly,Stages changes to the index,Pushes to remote,Resets files,B,`git add` stages changes to the index for the next commit.,Basics,Easy
+6,Which command creates a snapshot of staged changes?,git save,git record,git commit,git stash,C,`git commit` saves staged changes as a new commit.,Basics,Easy
+7,Which command shows commit history?,git history,git log,git list,git reflog,B,`git log` displays commit history. `reflog` shows HEAD movements.,Basics,Easy
+8,HEAD in Git refers to…,The first commit,The latest tag,Your current branch reference,The remote default branch,C,HEAD points to the current branch (or commit in detached state).,Basics,Easy
+9,Detached HEAD means…,"HEAD points directly to a commit, not a branch",The repo is corrupted,You have no remotes,There are merge conflicts,A,Detached HEAD occurs when you checkout a specific commit/tag.,Basics,Easy
+10,Which command shows line-by-line changes between working tree and index?,git show,git diff,git view,git scan,B,"`git diff` shows differences not yet staged, or other ranges with flags.",Basics,Easy
+11,Which command removes a tracked file from the working tree and index?,git rm,git del,git remove,git purge,A,`git rm` removes the file and stages the deletion.,Basics,Easy
+12,Which command renames a tracked file and stages the change?,git rename,git mv,git move,git file mv,B,`git mv` moves/renames a file and stages it.,Basics,Easy
+13,What does `.git/` directory contain?,Your global Git config,The repository’s internal metadata and object database,Temporary cache only,Remote cache only,B,"`.git/` stores objects, refs, index, config, hooks, etc.",Basics,Easy
+14,Which command initializes a new repo and adds a README in one step (on GitHub)?,git init --readme,Create repo via GitHub UI with 'Add a README',git new readme,git create readme,B,"On GitHub, you can tick 'Add a README' during repo creation.",Basics,Easy
+15,Which command lists configured remotes?,git remote -v,git remotes list,git list-remote,git config remotes,A,`git remote -v` shows remote names and URLs.,Basics,Easy
+16,Which command configures user name and email for commits (local repo)?,git setup user,git config user.name/email,git user set,git profile,B,Use `git config user.name` and `git config user.email` locally.,Basics,Easy
+17,What does `git show <commit>` display by default?,Branch list,Only file names,Commit details and patch,Remote URLs,C,It prints commit metadata and the diff for that commit.,Basics,Easy
+18,How to create and switch to a new branch (modern command)?,git branch -c new && git checkout new,git switch -c new,git new-branch new,git checkout -b && git new,B,`git switch -c <branch>` creates and checks out the branch.,Basics,Easy
+19,Which command stages parts of a file interactively?,git add --patch,git stage-part,git commit --partial,git chunk,A,`git add -p/--patch` lets you stage hunks selectively.,Basics,Easy
+20,Which command lists files committed in the last commit?,git diff --name-only HEAD^ HEAD,git last-files,git status --last,git ls-files --last,A,`git diff --name-only HEAD^ HEAD` lists changed files vs previous commit.,Basics,Easy
+21,Fast-forward merge happens when…,Branches diverged with conflicts,Target branch has not advanced since source branched,You rebase first,You squash commits,B,"If target is direct ancestor of source, Git can just move the pointer.",Branches & Merging,Medium
+22,Which command merges `feature` into the current branch?,git merge into feature,git merge feature,git pull feature,git combine feature,B,`git merge <branch>` merges that branch into the current one.,Branches & Merging,Easy
+23,Rebase vs merge—what’s true?,Rebase creates a merge commit,Merge rewrites history,Rebase rewrites commits onto a new base,They are identical,C,Rebase replays commits; merge preserves the branching history.,Branches & Merging,Medium
+24,Which command safely updates your branch with remote changes without auto-merging your work on top?,git pull --rebase,git pull,git fetch,git clone,C,`git fetch` downloads refs without merging; you decide next steps.,Branches & Merging,Medium
+25,"To ensure your local topic branch applies cleanly on updated main, you do:",git merge --squash main,git rebase main,git reset --hard main,git cherry-pick main,B,Rebasing topic on main rewrites it to start at main’s tip.,Branches & Merging,Medium
+26,Conflict resolution typically involves:,Editing conflict markers and committing,Deleting `.git`,Running `git gc`,Pushing forcefully,A,"Open files with `<<<<<<<`, fix, `git add`, then commit.",Branches & Merging,Easy
+27,"Which command shows a concise, one-line-per-commit graph?",git log --oneline --graph --decorate --all,git hist,git reflog --graph,git tree,A,Common pretty log for visualizing branch structure.,Branches & Merging,Medium
+28,What does `--no-ff` do during merge?,Forces a merge commit even if FF is possible,Disables conflicts,Deletes source branch,Stashes changes,A,`--no-ff` ensures a merge commit to preserve PR context.,Branches & Merging,Medium
+29,"After `git rebase`, the old branch tips are recoverable via…",git lost+found,git gc,git reflog,git fsck --lost-found,C,`reflog` tracks HEAD/branch movements; you can recover old tips.,Branches & Merging,Medium
+30,To abort an in-progress merge:,git merge --abort,git stop merge,git reset --stop,git cancel,A,`git merge --abort` restores pre-merge state when possible.,Branches & Merging,Easy
+31,Reset modes—`git reset --soft HEAD^` does:,Moves HEAD and keeps index & working tree staged,Moves HEAD and resets index,Moves HEAD and resets everything,Deletes last commit permanently,A,`--soft` moves HEAD only; index/WT unchanged (changes remain staged).,History & Reset,Medium
+32,`git reset --mixed HEAD^` (default) does:,HEAD only,HEAD+index reset; working tree keeps changes unstaged,Everything wiped,Stashes changes,B,`--mixed` resets HEAD and index; files become unstaged.,History & Reset,Medium
+33,`git reset --hard HEAD^` does:,Moves HEAD only,Moves HEAD and index,"Moves HEAD, resets index & working tree (danger)",Creates a merge commit,C,`--hard` discards changes in index/WT to match the target.,History & Reset,Medium
+34,Revert vs reset:,Revert rewrites history; reset adds a new commit,Both rewrite remote history,Revert creates a new commit that undoes another,Same thing,C,`git revert` is safe for shared branches because it adds a new inverse commit.,History & Reset,Medium
+35,Cherry-pick is used to…,Copy a specific commit onto current branch,Copy the whole branch,Clone repo,Sign commits,A,`git cherry-pick <commit>` applies that change onto current branch.,History & Reset,Medium
+36,Which command temporarily shelves changes not ready to commit?,git save,git shelve,git stash,git park,C,`git stash` stores and clears WIP changes.,History & Reset,Easy
+37,Recover a just-deleted branch (if not GC’d) using:,git show-branches,git reflog + git branch <name> <sha>,git fsck-only,Not possible,B,"Find the tip in `git reflog`, then recreate the branch at that SHA.",History & Reset,Medium
+38,Amend last commit message and include newly staged changes:,git commit --fix,git commit --amend,git commit --redo,git amend,B,`--amend` rewrites the last commit (new hash).,History & Reset,Easy
+39,Interactive rebase to squash commits:,git rebase -i HEAD~N,git rebase --squash-only,git merge -i,git squash -i,A,Use interactive rebase and mark commits as `squash`/`fixup`.,History & Reset,Medium
+40,Bisect helps you:,Encrypt history,Find the commit that introduced a bug via binary search,Rewrite authors,Optimize diffs,B,`git bisect` narrows down the first bad commit.,History & Reset,Medium
+41,Clone vs fork (GitHub):,Clone makes a server-side copy; fork local,Fork makes server-side copy under your account; clone makes a local copy,Same thing,Fork copies issues only,B,Fork is a GitHub copy; clone is local.,Collaboration,Easy
+42,Set upstream tracking for current branch:,git track origin/main,git push -u origin <branch>,git upstream set,git remote add-upstream,B,`-u` sets upstream so future `git push/pull` know default remote/branch.,Collaboration,Medium
+43,Fetch vs pull:,Pull downloads only tags,Fetch downloads and merges,Fetch downloads without merging; pull fetches then merges/rebases,They’re identical,C,Fetch is non-destructive; pull combines fetch + merge (or rebase).,Collaboration,Easy
+44,Safest way to update remote branch overwriting only if your local is up to date:,git push --force,git push --force-with-lease,git push --overwrite-safe,git push --clobber,B,`--force-with-lease` protects others’ work by checking remote tip.,Collaboration,Medium
+45,Add a new remote named upstream:,git remote add upstream <url>,git add-remote upstream <url>,git remote set-url <url>,git upstream add <url>,A,Use `git remote add <name> <url>`.,Collaboration,Easy
+46,List remote branches:,git branch -r,git list remote-branches,git show-remote,git reflog -r,A,`git branch -r` displays remote-tracking branches.,Collaboration,Easy
+47,Tracking branch is…,A local branch linked to a remote branch,A remote branch linked to local,A tag,A branch with CI,A,Local tracking branch knows its upstream remote branch.,Collaboration,Medium
+48,Open-source contribution flow typically:,Clone → push to upstream,Fork → clone fork → branch → PR to upstream,Email patch only,Direct push to main,B,Standard fork/PR workflow.,Collaboration,Easy
+49,Protected branches on GitHub can enforce:,"Required reviews & checks, restrict force pushes",Auto-tagging only,Anonymous pushes,Public forks only,A,Protection rules improve safety on important branches.,Collaboration,Medium
+50,CODEOWNERS works when placed in:,"Root, .github/, or docs/",Only root,Only .git/,Only /policies/,A,GitHub recognizes these locations.,Collaboration,Medium
+51,Auto-merge on GitHub PRs:,Merges immediately on open,Requires conditions (checks/reviews) to be met,Ignores protection rules,Only for admins,B,Auto-merge waits until all requirements pass.,Collaboration,Easy
+52,Squash & merge in PRs results in:,Multiple commits on target,One squashed commit on target,No commit on target,A rebase,B,All PR commits become one commit.,Collaboration,Easy
+53,Rebase & merge in PRs results in:,A merge commit,A fast-forwarded linear history without a merge commit,A squash,A tag,B,Commits are replayed; no merge commit added.,Collaboration,Medium
+54,GitHub Releases are:,Branches,Tags with release notes and assets in UI,Issues,Actions runs,B,Releases wrap tags with metadata and assets.,Collaboration,Easy
+55,Dependabot alerts notify about:,Lint errors,Large files,Vulnerable/outdated dependencies,CI timeouts,C,Helps keep dependencies secure.,Collaboration,Easy
+56,Annotated vs lightweight tag:,"Annotated stores metadata (message, tagger, date)",Lightweight is larger,Both identical,Lightweight carries GPG signature,A,Annotated tags are full objects; lightweight are just refs.,Tags,Medium
+57,Create an annotated tag v1.0:,git tag v1.0 -a -m 'v1.0',git tag -a v1.0 -m 'v1.0',git tag --ann v1.0,git tag +annot v1.0,B,Order: `git tag -a <name> -m <msg>`.,Tags,Easy
+58,Push all tags to remote:,git push --tags,git push tags/*,git push --all-tags,git tag push --all,A,`git push --tags` sends all tags.,Tags,Easy
+59,Delete a local tag:,git tag -d <name>,git delete tag <name>,git rm tag <name>,git tag --remove <name>,A,Use `git tag -d` to remove local tag.,Tags,Easy
+60,Sign a tag with GPG:,git tag -s v1.0 -m 'msg',git tag --gpg v1.0,git sign tag v1.0,git gpg-tag v1.0,A,`-s` creates a signed tag (GPG setup required).,Tags,Medium
+61,Git LFS is used for:,Large binary files stored outside normal object storage,Speeding up `git log`,Encrypting commits,Tagging,A,LFS keeps repo lean by storing pointers in Git.,Tools,Medium
+62,Submodules best describe:,Nested repos tracked at specific commits,Automatic dependency manager,Forks,Tags inside branches,A,Submodules reference external repos at fixed SHAs.,Tools,Hard
+63,Sparse-checkout lets you:,Clone only history,Filter files to present a partial working tree,Encrypt objects,Rewrite authors,B,Good for huge monorepos to limit checked-out paths.,Tools,Hard
+64,Worktrees allow:,Multiple working directories attached to one repo,Multiple remotes only,Faster clones,Signed commits only,A,Use `git worktree add` to check out branches in parallel dirs.,Tools,Hard
+65,`.gitattributes` can:,"Configure path-specific settings (EOL, diff, merge drivers, linguist)",Override remotes,Create branches,Manage tags,A,"Attributes tune diff/merge, EOL normalization, etc.",Tools,Medium
+66,`git clean -fdx` does:,Deletes untracked files/dirs and ignored files,Resets commits,Deletes tracked files,Unstages changes,A,Use with caution; it removes untracked/ignored content.,Tools,Hard
+67,`git blame` shows:,Who authored each line and when,Who merged PR,Issue links,Remote URLs,A,Helpful to locate ownership/timing of line changes.,Tools,Medium
+68,`git gc` purpose is:,"Garbage collect, compress objects, optimize repo",Generate commits,Grant credentials,Group commits,A,Improves performance/storage periodically.,Tools,Medium
+69,`git rerere` helps by:,Auto-resolving previously resolved conflicts,Auto-tagging commits,Encrypting remotes,Auto-signing commits,A,Reuse Recorded Resolution speeds repeated merges/rebases.,Tools,Hard
+70,`git bisect run` can:,Automatically pick good/bad,Run a script to test each revision,Rewrite history,Tag bad commits,B,Automates bisect by running a test command.,Tools,Hard
+71,Interactive rebase command:,git rebase -i <base>,git rebase --interactive-only,git merge -i,git amend -i,A,Use `-i` to reorder/squash/fixup/reword commits.,Advanced History,Medium
+72,`git commit --fixup <sha>` with rebase -i --autosquash will:,Create a merge commit,Auto-squash fixup into target commit during rebase,Delete the commit,Tag the commit,B,`--autosquash` reorders fixup/squash commits next to targets.,Advanced History,Hard
+73,`git revert -m 1 <merge-commit>` does:,Reverts the merge by choosing parent 1 as mainline,Deletes the branch,Resets HEAD,Stashes changes,A,For reverting merges you must specify mainline parent.,Advanced History,Hard
+74,Shallow clone limits history using:,`git clone --depth <n>`,`git clone --shallow <n>`,`git clone --limit <n>`,`git clone --history <n>`,A,`--depth` cuts history for faster minimal clones.,Advanced History,Medium
+75,Partial clone uses:,`--filter=blob:none`,`--no-blob`,`--partial-objects`,`--filter=tree:none`,A,Filters objects to fetch blobs lazily.,Advanced History,Hard
+76,To change author of the last commit:,git commit --change-author,"git commit --amend --author=""Name <email>""",git set-author,git amend --user,B,Amend with `--author` to update author/committer.,Advanced History,Medium
+77,`git filter-repo` vs `filter-branch`:,"filter-repo is newer, faster, safer replacement",filter-branch is recommended,They are identical,filter-repo is for tags only,A,Use `git filter-repo` for large history rewrites.,Advanced History,Hard
+78,Rename detection in diff is enabled by:,`-M` option,`-R` option,`--detect-rename` only,`--find-moves-only`,A,`-M` (and `-C`) help detect renames/copies.,Advanced History,Medium
+79,`-X ours` in merge means:,Always keep our version for conflicting hunks,Delete theirs branch,Prefer theirs for conflicts,Disable conflicts,A,Merge strategy option: resolve conflicting hunks in favor of current branch.,Advanced History,Hard
+80,Generate a patch series from commits:,git make-patch,git format-patch <range>,git patch --create,git diff --patch-only,B,`format-patch` outputs mbox-style patch files.,Advanced History,Hard
+81,Set global username/email:,git config --global user.name/email,git set --global user,git profile --global,git creds --set,A,Global config applies to all repos unless overridden.,Config & Auth,Easy
+82,SSH vs HTTPS for Git remotes:,SSH uses key-based auth and avoids frequent credential prompts,HTTPS cannot be used,SSH is slower always,HTTPS is required by GitHub,A,SSH keys improve UX; both SSH/HTTPS are supported.,Config & Auth,Easy
+83,Credential helpers store tokens in:,Random files,"OS-specific secure stores (e.g., wincred, osxkeychain, libsecret)",README,Git hooks,B,Helpers integrate with platform keychains for security.,Config & Auth,Medium
+84,Signed commits (GPG/SSH) help:,Optimize performance,Prove commit authorship integrity,Encrypt repository,Auto-merge PRs,B,Signatures attest authenticity; GitHub can show 'Verified'.,Config & Auth,Medium
+85,Org with SSO: using a PAT for Actions/CLI requires:,Nothing special,Authorize the PAT for SSO,Admin approval always,SSH only,B,You must SSO-authorize the token for org access.,Config & Auth,Medium
+86,Trigger workflow manually:,`workflow_dispatch`,`repository_dispatch` only,`pull_request`,`manual:true`,A,`on: workflow_dispatch` exposes the Run button.,Actions,Easy
+87,Store secrets for workflows:,In repo as plaintext,GitHub Secrets/Environment Secrets,In code comments,In Dockerfile,B,Use encrypted secrets at repo/org/env scope.,Actions,Easy
+88,Matrix builds allow:,Running jobs across multiple versions/OSes,Only serial runs,Only Windows,Exclusive to Enterprise,A,Use `strategy.matrix` for versions/OSes/arch combos.,Actions,Medium
+89,Reusable workflows are called via:,`uses: org/repo/.github/workflows/file.yml@ref` in `workflow_call`,`include:`,`import:`,`extends:`,A,Workflows can call other workflows configured with `workflow_call`.,Actions,Hard
+90,Artifacts are:,Compiled binaries in releases only,Files uploaded/downloaded between jobs,Secrets,Logs only,B,Use `actions/upload-artifact` to persist/share files.,Actions,Medium
+91,Cache dependencies by:,`actions/cache` keyed by lockfile hash,Saving to repo,Using tags,Artifacts only,A,"Cache speeds up installs (npm, pip, etc.).",Actions,Medium
+92,Environments with required reviewers are used to:,Bypass checks,"Gate deployments (e.g., staging/prod) with approvals",Speed up jobs,Trigger schedules,B,Use environments + protection rules for deploy approvals.,Actions,Medium
+93,Secret scanning & push protection can:,Auto-rotate keys,Detect leaked secrets in pushes/PRs and block pushes,Encrypt history,Disable forks,B,GitHub scans & can block pushes with known secret patterns.,Security,Medium
+94,Required linear history on a branch:,Forces rebase/FF-only merges (no merge commits),Allows merge commits,Requires squash only,No effect,A,Prevents merge commits; enforces linear history.,Security,Medium
+95,Restrict who can push to matching branches is configured via:,Branch protection rules,CODEOWNERS,Issue templates,Dependabot,A,Protection rules can limit who can push.,Security,Easy
+96,Security tab 'Dependabot alerts' shows:,Open CVEs affecting dependencies,Commit statistics,Users list,CI logs,A,Central view of dependency vulnerabilities.,Security,Easy
+97,Normalize line endings across platforms using:,.gitattributes with `* text=auto`,.gitignore,CODEOWNERS,README,A,Attributes manage EOL conversion LF/CRLF.,Misc,Medium
+98,Handle CRLF on Windows carefully by:,Setting `core.autocrlf` appropriately,Disabling Git,Using only LF on Windows,Deleting `.git`,A,`core.autocrlf` helps convert LF<->CRLF on checkout/commit.,Misc,Medium
+99,`.gitkeep` is:,A special Git feature,A conventional empty file to keep otherwise-empty dirs,A required file,A hook,B,Git ignores empty dirs; `.gitkeep` is a common convention.,Misc,Easy
+100,GitHub Pages builds typically from:,Any branch only,Default branch root only,Configured branch/folder (often `gh-pages` or `/docs`),Tags only,C,You can choose source in repo settings.,Misc,Medium
